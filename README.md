@@ -1,5 +1,7 @@
 # The Daily Code
 
+* 2022-07-24 [CGI, Rust, e Apache](https://youtu.be/L0MEgtOOLgo)
+* 2021-09-03 [Hello World em Rust](https://youtu.be/40dvx-NNOCs)
 * 2020-10-29 [Introdução a CRDTs](https://youtu.be/efMjpfaOnIs)
 * 2020-10-21 [Statically-sized Vec em Scala](https://youtu.be/3OshhmHSrug)
 * 2020-10-14 [Either: map e flatMap em Kotlin e Arrow](https://youtu.be/P2KttAKytyg)

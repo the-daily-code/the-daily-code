@@ -22,7 +22,7 @@ data class User(val id: String)
 data class Token(val id: String)
 
 fun fetchUser(userName: String): Res<User> =
-    if (userName.isNotBlank() || userName.length > 6) User(userName.trim()).right()
+    if (userName.isNotBlank() && userName.length > 6) User(userName.trim()).right()
     else Err(ErrId.InvalidArgument, "Invalid username $userName").left()
 
 fun createToken(user: User, password: String): Res<Token> =

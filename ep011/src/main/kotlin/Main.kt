@@ -7,7 +7,7 @@ data class Err(
     val id: ErrId,
     val msg: String,
     val throwable: Throwable? = null,
-    val tail: Error? = null
+    val tail: Err? = null
 )
 
 enum class ErrId {

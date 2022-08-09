@@ -29,8 +29,12 @@ object ErrSemigroup : Semigroup<Err> {
 fun <T> (() -> T).safely(err: () -> Err): Res<T> =
     Either.catch { this() }.handleErrorWith { err().copy(throwable = it).left()  }
 
+fun launchMissiles(): Int = throw Exception("BOOM!")
+
 fun <A, B> ((A) -> B).safely(a: A, err: () -> Err): Res<B> =
     { this (a) }.safely(err)
 
 fun <A, B, C>((A, B) -> C).safely(a: A, b: B, err: () -> Err): Res<C> =
     { this (a, b) }.safely(err)
+
+fun div(a: Int, b: Int): Int = a / b

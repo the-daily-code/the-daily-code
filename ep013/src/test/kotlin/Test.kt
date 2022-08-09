@@ -4,19 +4,23 @@ import org.junit.jupiter.api.Test
 
 class Test {
     @Test
-    fun `assert we can aggregate errors`() {
-        val respv1 = getUsername("    ")
-        val respv2 = getPassword("1234")
-        val respv3 = getAge(250)
+    fun `assert missiles are under control`() {
+        val res = ::launchMissiles.safely {
+            Err(ErrId.InvalidArgument, "Missiles got out of hand!")
+        }
 
-        val res = respv1.zip(
-            ErrSemigroup,
-            respv2,
-            respv3,
-            ::User
-        )
+        assertTrue { res.isLeft() }
 
-        assertTrue { res.isInvalid }
+        println(res)
+    }
+
+    @Test
+    fun `assert we can't divide by zero`() {
+        val res = ::div.safely(42, 0) {
+            Err(ErrId.InvalidArgument, "Failed to divide 42 by 0")
+        }
+
+        assertTrue { res.isLeft() }
 
         println(res)
     }

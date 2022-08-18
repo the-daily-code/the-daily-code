@@ -1,6 +1,6 @@
 (module
- (func $add (param $lhs i32) (param $rhs i32) (result i32)
+ (func $mul (param $lhs i64) (param $rhs i64) (result i64)
        local.get $lhs
        local.get $rhs
-       i32.add)
- (export "add" (func $add)))
+       i64.mul)
+ (export "mul" (func $mul)))

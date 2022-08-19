@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <script>
+      WebAssembly.instantiateStreaming(fetch("/hello_memory.wasm"))
+      .then(obj => {
+        var mem = obj.instance.exports.memory;
+        var bytes = new Uint8Array(mem.buffer, 0, 4);
+        var string = new TextDecoder('utf8').decode(bytes);
+	alert(string);
+      });
+    </script>
+  </body>
+</html>

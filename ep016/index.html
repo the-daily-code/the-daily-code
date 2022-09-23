@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <script>
+      var importObject = {
+        imports: {
+          print_func: function(res) {
+            alert("The result is " + res);
+	  }
+	}
+      }
+
+      WebAssembly.instantiateStreaming(fetch("/hello.wasm"), importObject)
+      .then(obj => {
+        obj.instance.exports.print_mul(3n, 5n);  // "15"
+      });
+    </script>
+  </body>
+</html>

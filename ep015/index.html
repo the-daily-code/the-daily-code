@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <script>
+      WebAssembly.instantiateStreaming(fetch("/hello.wasm"))
+      .then(obj => {
+        console.log(obj.instance.exports.mul(3n, 5n));  // "15"
+      });
+    </script>
+  </body>
+</html>
